@@ -74,7 +74,10 @@ app.get("/weather", (req, res) => {
     address.includes("9") ||
     address.includes("0") ||
     address.includes("`") ||
-    address.includes("~") || address.includes("[") || address.includes("]") || address.includes("{")
+    address.includes("~") ||
+    address.includes("[") ||
+    address.includes("]") ||
+    address.includes("{")
   ) {
     return res.send({
       error: "Invalid Address Provided! Try another Search",
