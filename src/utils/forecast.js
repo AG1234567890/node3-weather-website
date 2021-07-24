@@ -1,5 +1,7 @@
 const request = require("request");
 
+
+
 const forecast = (latitude, longitude, callback) => {
   const f = "f"
   const url =
@@ -13,9 +15,10 @@ const forecast = (latitude, longitude, callback) => {
       console.log(url)
       callback("Unable to Find Location from Weather Service", undefined);
     } else {
+      console.log(body.daily.data[0])
       callback(
         undefined,
-        `${body.current.weather_descriptions[0]}. It is currently ${body.current.temperature} Degrees and it feels like ${body.current.feelslike} Degrees`
+        `${body.current.weather_descriptions[0]}. It is currently ${body.current.temperature} Degrees and it feels like ${body.current.feelslike} Degrees. The humidity is ${body.current.humidity}%`
       );
     }
   });
